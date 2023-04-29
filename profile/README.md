@@ -15,6 +15,16 @@ We have developed a collection of repositories, known as Argo Universe, to serve
 
 Furthermore, we have supplementary repositories that store example app and application configurations. These repositories offer a sample workflow for constructing and deploying an application.
 
+``` mermaid
+flowchart  TB
+subgraph GitHub Repositories
+    abb(argo-bigbang) ---
+    acnf(app-config) ---
+    sample-app(sample-app)
+end
+
+```
+
 ## Getting Started
  
 ### Cloud Resources
@@ -31,7 +41,7 @@ To get started with Argo Universe, simply check out our [Argo Bigbang repo](http
 flowchart  LR
  client([client])---->ingress[Ingress];
  ingress--> service[Service];
- subgraph kubernetes cluster
+ subgraph k8s ["Kubernetes Cluster"]
     ingress;
     subgraph applications
     
@@ -39,12 +49,11 @@ flowchart  LR
     end
     subgraph cluster-addons
         
+        ArgoCD(ArgoCD);
+        ING(Ingress Contrller)
         CM(Certificate Manager);
         SI(Secrets Injection Manager);
-        ING(Ingress Contrller)
-    end
-    subgraph argocd ns
-        ArgoCD(ArgoCD);
+
     end
  end
 
@@ -52,14 +61,12 @@ flowchart  LR
 
  classDef plain fill:#ddd,stroke:#fff,stroke-width:4px,color:#000;
  classDef k8sAddons fill:#28d128,stroke:#128a12,stroke-width:2px,color:#fff;
- classDef k8s fill:#326ce5,stroke:#fff,stroke-width:4px,color:#fff;
- classDef cluster fill:#fff,stroke:#bbb,stroke-width:2px,color:#326ce5;
+ classDef whiteBack fill:#fff,stroke:#128a12,stroke-width:1px,color:#000;
+ classDef k8s fill:#326ce5,stroke:#fff,stroke-width:4px,color:#fff; 
  class ingress,service,pod1,pod2 k8s;
+ class cluster-addons,applications whiteBack;
  class ArgoCD,CM,SI,ING k8sAddons;
  class client plain;
- class cluster cluster;
-
-
 
 
 
