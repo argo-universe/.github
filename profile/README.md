@@ -73,7 +73,7 @@ flowchart  LR
 ```
 ### Cluster Addons
 
-What are they? why we need it? what componene an idea kubernetes cluster requires?
+What are they? why we need it? what componenets are required for an ideal kubernetes cluster?
 
 ##### ArgoCD
 ArgoCD is a continuous delivery tool that automates the deployment of applications to Kubernetes clusters. It is used in Kubernetes to streamline the deployment process by providing a unified interface for managing deployment configurations and deployment targets.
