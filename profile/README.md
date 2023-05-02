@@ -41,12 +41,13 @@ To get started with Argo Universe, simply check out our [Argo Bigbang repo](http
 ``` mermaid
 flowchart  LR
  client([client])---->ingress[Ingress];
- ingress--> service[Service];
+ ingress--> service1[Service];
+ ingress--> service2[Service];
  subgraph k8s ["Kubernetes Cluster"]
     ingress;
     subgraph applications
-    
-        service-->pod1[Pod];
+        service1-->pod1[frontend];
+        service2-->pod2[backend];
     end
     subgraph cluster-addons
         
@@ -64,7 +65,7 @@ flowchart  LR
  classDef k8sAddons fill:#28d128,stroke:#128a12,stroke-width:2px,color:#fff;
  classDef whiteBack fill:#fff,stroke:#128a12,stroke-width:1px,color:#000;
  classDef k8s fill:#326ce5,stroke:#fff,stroke-width:4px,color:#fff; 
- class ingress,service,pod1,pod2 k8s;
+ class ingress,service1,service2,pod1,pod2 k8s;
  class cluster-addons,applications whiteBack;
  class ArgoCD,CM,SI,ING k8sAddons;
  class client plain;
