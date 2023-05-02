@@ -20,7 +20,8 @@ flowchart  TB
 subgraph GitHub Repositories
     abb(argo-bigbang) ---
     acnf(app-config) ---
-    sample-app(sample-app)
+    backend(backend)---
+    frontend(frontend)
 end
 
 ```
