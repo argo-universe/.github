@@ -22,6 +22,9 @@ end
 
 ```
 
+
+Please visit argocd.argouniverse.com to see the configuration in action.
+
 ## Getting Started
  
 ### Cloud Resources
@@ -45,14 +48,14 @@ flowchart  LR
         service1-->pod1[frontend];
         service2-->pod2[backend];
     end
-    subgraph cluster-addons
-        
-        Vault;
+    subgraph cluster-addons         
+        SecretStore(Secret Store);
         ArgoCD(ArgoCD);
         ING(Ingress Contrller)
         CM(Certificate Manager);
         SI(Secrets Injection Manager);
-
+        preometheus(Preometheus);
+        grafana(Grafana);
     end
  end
 
@@ -64,7 +67,7 @@ flowchart  LR
  classDef k8s fill:#326ce5,stroke:#fff,stroke-width:4px,color:#fff; 
  class ingress,service1,service2,pod1,pod2 k8s;
  class cluster-addons,applications whiteBack;
- class ArgoCD,CM,SI,ING k8sAddons;
+ class ArgoCD,CM,SI,ING,SecretStore,preometheus,grafana k8sAddons;
  class client plain;
 
 
@@ -74,18 +77,47 @@ flowchart  LR
 
 Kubernetes cluster add-ons are additional components that can be installed on top of a Kubernetes cluster to extend its functionality and provide additional features. These add-ons can help with tasks such as monitoring, logging, networking, and security.
 
+---
+
+<img src="https://cncf-branding.netlify.app/img/projects/argo/horizontal/color/argo-horizontal-color.png" height="100" alt="" />
+
 ##### ArgoCD
 ArgoCD is a continuous delivery tool that automates the deployment of applications to Kubernetes clusters. It is used in Kubernetes to streamline the deployment process by providing a unified interface for managing deployment configurations and deployment targets.
 
-#### Ingress  
+---
+<img src="https://www.nginx.com/wp-content/uploads/2021/08/NGINX-Part-of-F5-horiz-black-type-1.svg" height="90" alt="" />
+
+#### Ingress 
 Nginx ingress controller is a Kubernetes-native solution for managing incoming traffic to a cluster. It is used in Kubernetes to route incoming traffic to the appropriate application and to provide load balancing and SSL termination.
+
+---
+<img src="https://avatars.githubusercontent.com/u/68335991?s=200&v=4" height="100" alt="" />
 
 ##### Secret Manager 
 External secret store is a Kubernetes tool that allows for the management of secrets in an external, secure location outside of Kubernetes. It is used in Kubernetes to improve security by separating secret management from the main cluster and providing access control and auditing capabilities.
 
+---
 ##### Certificate Manager 
+
+<img src="https://landscape.cncf.io/logos/cert-manager.svg" height="100" alt="" />
+
 Cert manager is a Kubernetes tool for automatically managing SSL/TLS certificates for Kubernetes workloads. It is used in Kubernetes to simplify the process of managing certificates and to ensure that workloads are always securely encrypted.
 
+---
+##### Promehteus
+
+<img src="https://landscape.cncf.io/logos/prometheus.svg" height="100" alt="" />
+
+Prometheus is an open-source monitoring and alerting toolkit widely used in the field of DevOps and system monitoring. It provides a flexible and scalable solution for collecting, storing, and visualizing metrics from various sources, empowering organizations to gain valuable insights into the health and performance of their systems.
+
+---
+##### Grafana 
+
+<img src="https://grafana.com/static/assets/internal/grafana_logo-web-white-text.svg" height="80" alt="" />
+
+Grafana is a powerful open-source data visualization and monitoring tool that allows users to create interactive and customizable dashboards. With its extensive support for various data sources and robust visualization options, Grafana enables organizations to gain actionable insights and effectively monitor their systems' performance and metrics.
+
+---
 ## Contributing
 
 We welcome contributions from anyone who is interested in GitOps, ArgoCD, or Kubernetes. You can contribute to Argo Universe by submitting pull requests, opening issues, or sharing your thoughts and ideas.
