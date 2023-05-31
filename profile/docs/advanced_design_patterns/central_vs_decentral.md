@@ -1,0 +1,2 @@
+- Central: ArgoCD instances manages multiple destination clusters
+- Decentral: Each destination clusters has its own ArgoCD instances, managing only deployment to its own cluster.
