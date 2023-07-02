@@ -15,47 +15,6 @@ Furthermore, we have supplementary repositories that store example app and appli
 To get started with Argo Universe, simply check out our [Argo Bigbang repo](https://github.com/argo-universe/argo-bigbang). Feel free to explore and use the repositories as you see fit.
 
 
-``` mermaid
-flowchart  TB
-subgraph repository [GitHub]
-    APPCONF(App config) 
-    BIGBANG(Argo Bigbang) 
-    SAPP(Sample App)
-
-    subgraph Pipeline [Pipeline]
-        BUILD[Build the image] 
-        UPDATEIMAGE[Update Image tag] 
-    end
-
-
-end
-
-subgraph kubernetes [Kubernetes]
-        AROGO(ArgoCD) 
-        SA(Sample App)
-        ING(Ingress)
-        CERT(Cert Manager)
-        EXT(External Secret)
-end
-
-
-AROGO ----->  APPCONF
-AROGO ---->  BIGBANG 
-AROGO -->  ING
-AROGO --> CERT
-AROGO -->  EXT 
-AROGO -->  SA
-SAPP --> |commit or tag <br> starts the pipeline| Pipeline
-BUILD --> UPDATEIMAGE
-BUILD --> DockerHub
-UPDATEIMAGE --> APPCONF
-
-kubernetes ------ DockerHub
-
-linkStyle 0 stroke-width:2px,fill:none,stroke:blue;
-linkStyle 5 stroke-width:2px,fill:none,stroke:blue;
-linkStyle default stroke-width:2px,fill:none,stroke:red;
-```
 ## Installation
 
 Clone the  [Argo Bigbang](https://github.com/argo-universe/argo-bigbang) run install.sh file with environment name
