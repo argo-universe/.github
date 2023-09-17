@@ -7,8 +7,6 @@ We have developed a collection of repositories, known as Argo Universe, to serve
 
 Furthermore, we have supplementary repositories that store example app and application configurations. These repositories offer a sample workflow for constructing and deploying an application.
 
-# Take a look at  LIVE ArgoCD installation from here https://argocd.argouniverse.com/
-
 
 ## Getting Started
 
